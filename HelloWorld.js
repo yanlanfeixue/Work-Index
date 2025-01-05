@@ -1,0 +1,23 @@
+const HelloWorldImageList = [
+    "https://lsky.yanlanfeixue.com:66/i/2022/12/14/6398b64af0b4c.jpeg",
+    "https://lsky.yanlanfeixue.com:66/i/2022/12/14/639953b94285b.jpg",
+    "./image/HelloWorld/test (1).jpg",
+    "./image/HelloWorld/test (2).jpg",
+    "./image/HelloWorld/test (3).jpg",
+    "./image/HelloWorld/test (4).jpg",
+    "./image/HelloWorld/test (5).jpg",
+    "./image/HelloWorld/test (6).jpg",
+    "./image/HelloWorld/test (7).jpg",
+    "./image/HelloWorld/test (8).jpg",
+    "./image/HelloWorld/test (9).jpg",
+    "./image/HelloWorld/test (10).jpg",
+    "./image/HelloWorld/test (11).jpg",
+    "./image/HelloWorld/test (12).jpg",
+    "./image/HelloWorld/test (13).jpg",
+    "./image/HelloWorld/test (14).jpg",
+    "./image/HelloWorld/test (15).jpg",
+    "./image/HelloWorld/test (16).jpg",
+    "./image/HelloWorld/test (17).jpg",
+    "./image/HelloWorld/test (18).jpg",
+    "./image/HelloWorld/test (19).jpg"
+];

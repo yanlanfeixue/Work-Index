@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work-Index for FeiXue</title>
+    <link rel="icon" href="./image/ico.jpg" type="image/x-icon">
+
+    <!-- 引用外部CSS文件 -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- 在此加载每个图片列表文件 -->
+    <script src="ByeWorld.js"></script>
+    <script src="HelloWorld.js"></script>
+
+    <!-- 引入 imageLoader.js -->
+    <script src="imageLoader.js"></script>
+
+</head>
+
+
+<body style="background-color: #ffffff;">
+
+    <!-- Hello World -->
+    <div style="text-align: center;">
+        <h1 class="h1" id="hello-world">Hello World</h1>
+
+        <!-- 在HTML文件中添加以下代码 -->
+        <div class="horizontal-line"></div>
+    </div>
+
+    <!-- 创建一个容器来显示盒子 -->
+    <div class="container" id="helloContainer">
+        <!-- 图片将通过JavaScript动态添加到这里 -->
+    </div>
+    <script>
+        // 调用 loadImages 函数
+        loadImages('helloContainer', HelloWorldImageList);
+    </script>
+
+    <br>
+
+    <!-- Bye World -->
+    <div style="text-align: center;">
+        <h1 class="h1" id="bye-world">Bye World</h1>
+        <!-- 在HTML文件中添加以下代码 -->
+        <div class="horizontal-line"></div>
+    </div>
+
+    <!-- 创建一个容器来显示盒子 -->
+    <div class="container" id="byeContainer">
+        <!-- 图片将通过JavaScript动态添加到这里 -->
+    </div>
+    <script>
+        // 调用 loadImages 函数
+        loadImages('byeContainer', ByeWorldImageList);
+    </script>
+
+    <!-- 悬浮窗 -->
+    <div class="sidebar">
+        <a href="#hello-world" class="sidebar-button">Hello World</a><br>
+        <a href="#bye-world" class="sidebar-button">Bye World</a>
+        <div class="sidebar-icon"></div>  <!-- 悬浮窗的三个小圆点 -->
+    </div>
+
+</body>
+
+
+
+<!-- 其他HTML内容 -->
+<script src="fullscreen.js"></script>
+
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<!-- 在此加载每个图片列表文件 -->
+<script src="ByeWorld.js"></script>
+<script src="HelloWorld.js"></script>
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image</title>
+    <style>
+        
+        /* 修改后的容器样式 */
+        .container {
+            width: 100%;
+            column-count: 4; /* 定义列数 */
+            column-gap: 15px; /* 列间距 */
+        }
+
+        /* 修改后的盒子样式 */
+        .box {
+            width: 100%;
+            background-color: #f0f0f0;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ffffff7d;
+            break-inside: avoid; /* 防止盒子被拆分 */
+            border-radius: 21px; /* 添加圆角 */
+        }
+
+        @media (max-width: 1600px) {
+            .container {
+                column-count: 3;
+            }
+        }
+
+        @media (max-width: 890px) {
+            .container {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 570px) {
+            .container {
+                column-count: 1;
+            }
+        }
+
+        /* 设置图片样式，使其等比例缩放且不超出盒子范围 */
+        .box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 保持图片宽高比并完全适应盒子 */
+            border-radius: 20px; /* 添加圆角 */
+        }
+        /* 全屏显示图片的样式 */
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            display: none; /* 确保初始状态下是隐藏的 */
+        }
+
+        .fullscreen img {
+            max-width: 98%;
+            max-height: 98%;
+            object-fit: contain;
+            transition: opacity 0.5s ease-in-out; /* 添加过渡效果 */
+            border-radius: 20px; /* 添加圆角 */
+        }
+
+        .fullscreen img.hidden {
+            opacity: 0;
+        }
+
+        .fullscreen img.visible {
+            opacity: 1;
+        }
+
+
+    </style>
+</head>
+
+
+<body style="background-color: #ffffff;">
+    <!-- Hello World -->
+    <div style="text-align: center;">
+        <h1 style="font-size: 36px;">——Hello World——</h1>
+
+    </div>
+    <!-- 创建一个容器来显示盒子 -->
+    <div class="container" id="helloContainer">
+        <!-- 图片将通过JavaScript动态添加到这里 -->
+    </div>
+    <!-- <script src="HelloWorld.js"></script> -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const container = document.getElementById('helloContainer');
+            HelloWorldImageList.forEach(imageSrc => {
+                const box = document.createElement('div');
+                box.className = 'box';
+                const img = document.createElement('img');
+                img.src = imageSrc;
+                img.alt = imageSrc.split('/').pop();
+                box.appendChild(img);
+                container.appendChild(box);
+            });
+        });
+    </script>
+
+    <br>
+    <!-- Bye World -->
+    <div style="text-align: center;">
+        <h1 style="font-size: 36px;">——Bye World——</h1>
+    </div>
+    <!-- 创建一个容器来显示盒子 -->
+    <div class="container" id="byeContainer">
+        <!-- 图片将通过JavaScript动态添加到这里 -->
+    </div>
+    <!-- <script src="ByeWorld.js"></script> -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const boxes = document.querySelectorAll('.box');
+            console.log(boxes); // 检查是否有 .box 元素  
+            const container = document.getElementById('byeContainer');
+            ByeWorldImageList.forEach(imageSrc => {
+                const box = document.createElement('div');
+                box.className = 'box';
+                const img = document.createElement('img');
+                img.src = imageSrc;
+                img.alt = imageSrc.split('/').pop();
+                box.appendChild(img);
+                container.appendChild(box);
+            });
+        });
+    </script>
+
+
+
+
+    
+    <script>
+    // 当DOM内容加载完成后，执行回调函数
+    document.addEventListener('DOMContentLoaded', function() {
+        // 获取所有类名为'box'的元素
+        const boxes = document.querySelectorAll('.box');
+        // 创建一个新的div元素，用于后续显示全屏图片
+        const container = document.createElement('div');
+        // 设置新创建的div元素的类名为'fullscreen'
+        container.className = 'fullscreen';
+        // 将新创建的div元素添加到body的子元素中
+        document.body.appendChild(container);
+
+        let currentIndex = -1; // 当前显示的图片索引
+
+        // 为每个'box'元素添加点击事件监听器
+        boxes.forEach((box, index) => {
+            box.addEventListener('click', function() {
+                currentIndex = index; // 记录当前点击的图片索引
+                showFullscreenImage(currentIndex);
+            });
+        });
+
+        // 显示全屏图片的函数
+        function showFullscreenImage(index) {
+            if (index < 0 || index >= boxes.length) return;
+            // 获取当前点击的'box'元素内部的img元素的src属性
+            const imgSrc = boxes[index].querySelector('img').src;
+            // 创建一个新的img元素
+            const img = document.createElement('img');
+            // 设置新创建的img元素的src属性为获取到的图片地址
+            img.src = imgSrc;
+            // 清空container元素的内部HTML，以移除之前的图片
+            container.innerHTML = ''; // 清空之前的图片
+            // 将新创建的img元素添加到container元素中
+            container.appendChild(img);
+            // 显示container元素，并使用flex布局
+            container.style.display = 'flex';
+        }
+
+        // 为container元素添加点击事件监听器
+        container.addEventListener('click', function() {
+        // 隐藏container元素，以关闭全屏图片显示
+        container.style.display = 'none';
+        });
+
+        // 处理触摸事件
+        let startX = 0;
+        let startY = 0;
+        let isSwiped = false; // 添加标志来跟踪是否已经处理过一次滑动
+
+        container.addEventListener('touchstart', function(event) {
+            startX = event.touches[0].clientX;
+            startY = event.touches[0].clientY;
+            isSwiped = false; // 重置标志
+        });
+
+        container.addEventListener('touchmove', function(event) {
+            if (isSwiped) return; // 如果已经处理过一次滑动，则直接返回
+
+            event.preventDefault(); // 阻止默认的触摸行为
+
+            const endX = event.touches[0].clientX;
+            const endY = event.touches[0].clientY;
+            const deltaX = endX - startX;
+            const deltaY = endY - startY;
+
+            if (Math.abs(deltaX) > Math.abs(deltaY)) { // 水平滑动
+                if (deltaX < 0) { // 向右滑动
+                    currentIndex = (currentIndex + 1) % boxes.length;
+                } else { // 向左滑动
+                    currentIndex = (currentIndex - 1 + boxes.length) % boxes.length;
+                }
+                showFullscreenImage(currentIndex);
+                isSwiped = true; // 设置标志为已处理
+            }
+        });
+
+        container.addEventListener('touchend', function(event) {
+            // 不需要在这里处理，已经在 touchmove 中处理了滑动逻辑
+        });
+
+        // 处理键盘事件
+        // 处理键盘事件
+        document.addEventListener('keydown', function(event) {
+            if (container.style.display === 'flex') {
+                switch (event.key) {
+                    case 'w':
+                    case 'a':
+                    case 'ArrowLeft':
+                    case 'ArrowUp':
+                        event.preventDefault(); // 阻止默认行为
+                        event.stopPropagation(); // 停止事件冒泡
+                        currentIndex = (currentIndex - 1 + boxes.length) % boxes.length;
+                        showFullscreenImage(currentIndex);
+                        break;
+                    case 's':
+                    case 'd':
+                    case 'ArrowRight':
+                    case 'ArrowDown':
+                        event.preventDefault(); // 阻止默认行为
+                        event.stopPropagation(); // 停止事件冒泡
+                        currentIndex = (currentIndex + 1) % boxes.length;
+                        showFullscreenImage(currentIndex);
+                        break;
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

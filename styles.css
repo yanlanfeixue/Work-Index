@@ -1,0 +1,171 @@
+:root {
+    --side-margin: 3%; /* 定义左右边距的变量 */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* 在styles.css文件中添加以下样式 */
+.sidebar-button {
+    display: inline-block;
+    width: 100px;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-button:hover {
+    background-color: #0056b3;
+}
+
+
+/* 在styles.css文件中添加以下样式 */
+.sidebar {
+    position: fixed; /* 固定定位 */
+    top: 50%; /* 垂直居中 */
+    left: 0; /* 贴边左侧 */
+    transform: translateY(-50%) translateX(-85%); /* 初始状态向左移动85% */
+    width: 150px; /* 宽度 */
+    background-color: #f0f0f0; /* 背景颜色 */
+    padding: 20px; /* 内边距 */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.333); /* 阴影效果 */
+    z-index: 1000; /* 确保悬浮窗在最上层 */
+    transition: transform 0.3s ease-in-out; /* 添加过渡效果 */
+    border-top-right-radius: 15px; /* 右上角圆角 */
+    border-bottom-right-radius: 15px; /* 右下角圆角 */
+}
+
+
+.sidebar-icon {
+    background-image: url('./image/dot.png'); /* 图标路径 */
+    opacity: 0.7;
+    position: absolute; /* 使用绝对定位 */
+    top: 50%; /* 垂直居中 */
+    right: 10px; /* 距离右侧边缘10px */
+    transform: translateY(-50%); /* 垂直居中 */
+    width: 6px; /* 图标宽度 */
+    height: 35px; /* 图标高度 */
+    background-size: cover; /* 确保图标覆盖整个容器 */
+    background-repeat: no-repeat; /* 防止图标重复 */
+}
+
+
+.sidebar p {
+    margin: 0; /* 去除段落默认的上下外边距 */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.sidebar:hover {
+    transform: translateY(-50%) translateX(0); /* 鼠标经过时展开 */
+}
+
+
+
+
+/* 在styles.css文件中添加以下样式 */
+.horizontal-line {
+    width: 80%;    
+    text-align: left;
+    
+    border-top: 1px solid #0000004a; /* 设置直线的颜色和粗细 */
+    margin: 20px var(--side-margin); /* 设置上下外边距 */
+    margin-top: -1%;  
+}
+
+
+
+.h1 {
+    font-size: 50px;
+    text-align: left;
+    margin-left: var(--side-margin);
+    margin-right: var(--side-margin);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.container {
+    width: calc(100% - (2 * var(--side-margin))); /* 减去左右边距的总和 */
+    column-count: 4; /* 定义列数 */
+    column-gap: 15px; /* 列间距 */
+    margin-left: var(--side-margin); /* 左边距 */
+    margin-right: var(--side-margin); /* 右边距 */
+}
+/* 盒子样式 */
+.box {
+    width: 100%;
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ffffff7d;
+    break-inside: avoid; /* 防止盒子被拆分 */
+    border-radius: 20.7px; /* 添加圆角 */
+    transition: transform 0.2s ease-in-out, border 0.3s ease-in-out ; 添加过渡效果，使动画更平滑
+}
+
+@media (max-width: 1600px) {
+    .container {
+        column-count: 3;
+    }
+}
+
+@media (max-width: 890px) {
+    .container {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 570px) {
+    .container {
+        column-count: 1;
+    }
+}
+
+.box:hover {
+    transform: scale(1.03); /* 鼠标悬停时图片放大 */
+    border: 1px solid #505050;
+}
+
+/* 设置图片样式，使其等比例缩放且不超出盒子范围 */
+.box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 保持图片宽高比并完全适应盒子 */
+    border-radius: 20px; /* 添加圆角 */
+}
+/* 全屏显示图片的样式 */
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: none; /* 确保初始状态下是隐藏的 */
+}
+
+.fullscreen img {
+    max-width: 98%;
+    max-height: 98%;
+    object-fit: contain;
+    transition: opacity 0.5s ease-in-out; /* 添加过渡效果 */
+    border-radius: 20px; /* 添加圆角 */
+}
+
+.fullscreen img.hidden {
+    opacity: 0;
+}
+
+.fullscreen img.visible {
+    opacity: 1;
+}
