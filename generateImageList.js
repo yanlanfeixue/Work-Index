@@ -7,10 +7,10 @@ var folderName = 'ByeWorld';
 const folderPath = './image/'+folderName;
 
 fs.readdir(folderPath, (err, files) => {
-    if (err) {
-        console.error('无法扫描目录:', folderPath);
-        return console.error('错误详情:', err);
-    }
+    //if (err) {
+    //    console.error('无法扫描目录:', folderPath);
+    //    return console.error('错误详情:', err);
+    //}
 
     console.log('成功读取文件夹内容:', files);
 

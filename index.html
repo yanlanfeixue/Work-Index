@@ -20,47 +20,66 @@
 </head>
 
 
-<body style="background-color: #ffffff;">
+<body style="background-color: #ffffff; margin: 0;">
+
 
     <!-- Hello World -->
-    <div style="text-align: center;">
-        <h1 class="h1" id="hello-world">Hello World</h1>
+    <div style="margin: 0;">
+        <!-- 标题 -->
+        <div class="sticky-header">
+            <div style="height: 1px;"></div>
+            <h2 class="h2">· 飞雪的作品集 ·</h2>
+            <h1 class="h1" id="hello-world">Hello World</h1>
+            <div class="horizontal-line"></div>
+            <div style="height: 1px;"></div>
+            <!-- <div class="horizontal-line"></div> -->
+        </div>
 
-        <!-- 在HTML文件中添加以下代码 -->
-        <div class="horizontal-line"></div>
-    </div>
+        <br>
+    
+        <!-- 创建一个容器来显示图片盒子 -->
+        <div class="container" id="helloContainer">
+            <!-- 图片将通过JavaScript动态添加到这里 -->
+        </div>
 
-    <!-- 创建一个容器来显示盒子 -->
-    <div class="container" id="helloContainer">
-        <!-- 图片将通过JavaScript动态添加到这里 -->
+        <script>
+            // 调用 loadImages 函数
+            loadImages('helloContainer', HelloWorldImageList);
+        </script>
     </div>
-    <script>
-        // 调用 loadImages 函数
-        loadImages('helloContainer', HelloWorldImageList);
-    </script>
 
     <br>
 
     <!-- Bye World -->
-    <div style="text-align: center;">
-        <h1 class="h1" id="bye-world">Bye World</h1>
-        <!-- 在HTML文件中添加以下代码 -->
-        <div class="horizontal-line"></div>
-    </div>
+    <div>
+        <!-- 标题 -->
+        <div class="sticky-header">
+            <div style="height: 1px;"></div>
+            <h2 class="h2">· 飞雪的作品集 ·</h2>
+            <h1 class="h1" id="bye-world">Bye World</h1>
+            <div class="horizontal-line"></div>
+            <div style="height: 1px;"></div>
+            <!-- 在HTML文件中添加以下代码 -->
+            <!-- <div class="horizontal-line"></div> -->
+        </div>
 
-    <!-- 创建一个容器来显示盒子 -->
-    <div class="container" id="byeContainer">
-        <!-- 图片将通过JavaScript动态添加到这里 -->
+        <br>
+
+        <!-- 创建一个容器来显示图片盒子 -->
+        <div class="container" id="byeContainer">
+            <!-- 图片将通过JavaScript动态添加到这里 -->
+        </div>
+
+        <script>
+            // 调用 loadImages 函数
+            loadImages('byeContainer', ByeWorldImageList);
+        </script>
     </div>
-    <script>
-        // 调用 loadImages 函数
-        loadImages('byeContainer', ByeWorldImageList);
-    </script>
 
     <!-- 悬浮窗 -->
     <div class="sidebar">
-        <a href="#hello-world" class="sidebar-button">Hello World</a><br>
-        <a href="#bye-world" class="sidebar-button">Bye World</a>
+        <a href="#helloContainer" class="sidebar-button">Hello World</a><br>
+        <a href="#byeContainer" class="sidebar-button">Bye World</a>
         <div class="sidebar-icon"></div>  <!-- 悬浮窗的三个小圆点 -->
     </div>
 

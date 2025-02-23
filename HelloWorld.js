@@ -1,4 +1,5 @@
 const HelloWorldImageList = [
+    "./image/ico.jpg",
     "https://lsky.yanlanfeixue.com:66/i/2022/12/14/6398b64af0b4c.jpeg",
     "https://lsky.yanlanfeixue.com:66/i/2022/12/14/639953b94285b.jpg",
     "./image/HelloWorld/test (1).jpg",

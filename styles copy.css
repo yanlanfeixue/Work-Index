@@ -1,69 +1,22 @@
 :root {
     --side-margin: 3%; /* 定义左右边距的变量 */
-    --leftmargin-adjust: 10px;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-/* 为所有元素设置 scroll-margin-top */
-* {
+#hello-world {
+    scroll-margin-top: 60px; /* 设置滚动边距为20px */
+}
+#bye-world {
+    scroll-margin-top: 60px; /* 设置滚动边距为20px */
+}
+.scroll-margin {
     scroll-margin-top: 60px; /* 设置滚动边距为60px */
 }
 
-
-/* 标题顶部冻结 */
-.sticky-header {
-    background-color: #ffffffad;
-    position: -webkit-sticky; /* For Safari */
-    position: sticky;
-    width: 100%;
-    top: -1px;
-    z-index: 1;
-    backdrop-filter: blur(5px);
-    margin: 0;
-    box-shadow: #000000;
-}
-.sticky-header:before {
-    content: "";
-    position: absolute;
-    top: -1px;
-    bottom: -1px;
-    left: -1px;
-    right: -1px;
-    border: 0px solid LightGrey;
-    z-index: -1;
-    margin: 0;
-    box-shadow: #000000;
-}
-
-
-.h1 {
-    font-size: 40px;
-    text-align: left;
-    color: #000000;
-    margin-left: var(--side-margin);
-    margin-right: var(--side-margin);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-.h2 {
-    margin-left: var(--side-margin);
-    margin-right: var(--side-margin);
-    font-size: 17px;
-    margin-bottom: -30px;
-    font-weight: bold; /* 设置字体为粗体 */
-    color: #000000;
-    width: 100%;
-    opacity: 0.6;
-    /* text-align: center;  */
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-
-
-/* 标题顶部冻结（弃用） */
+/* 顶部冻结 */
 .sticky-top {
     position: fixed;
     top: 0px;
@@ -87,25 +40,19 @@ html {
     /* text-align: center; 水平居中（如果需要） */
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-/* 标题顶部冻结（弃用） */
 
 
 /* 在styles.css文件中添加以下样式 */
 .sidebar-button {
-    text-align: left;
-    font-size: 15px;
     display: inline-block;
     width: 100px;
     margin-top: 10px;
     padding: 10px 20px;
-    background-color: #007bffae;
+    background-color: #007BFF;
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    font-weight: bold; /* 设置字体为粗体 */
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     transition: background-color 0.3s ease;
-    backdrop-filter: blur(5px); /* 添加磨砂玻璃效果 */
 }
 
 .sidebar-button:hover {
@@ -120,14 +67,13 @@ html {
     left: 0; /* 贴边左侧 */
     transform: translateY(-50%) translateX(-85%); /* 初始状态向左移动85% */
     width: 150px; /* 宽度 */
-    background-color: #f0f0f098; /* 背景颜色 */
+    background-color: #f0f0f0; /* 背景颜色 */
     padding: 20px; /* 内边距 */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.333); /* 阴影效果 */
     z-index: 1000; /* 确保悬浮窗在最上层 */
-    transition: transform 0.3s ease 0.15s; /* 添加0.3s过渡效果并添加0.15s悬停延迟 */
+    transition: transform 0.3s ease-in-out; /* 添加过渡效果 */
     border-top-right-radius: 15px; /* 右上角圆角 */
     border-bottom-right-radius: 15px; /* 右下角圆角 */
-    backdrop-filter: blur(5px); /* 添加磨砂玻璃效果 */
 }
 
 
@@ -159,16 +105,23 @@ html {
 
 /* 水平线样式 */
 .horizontal-line {
-    width: 70%;    
+    width: 80%;    
     text-align: left;
     
-    border-top: 1px solid #00000046; /* 设置直线的颜色和粗细 */
-    margin: 10px var(--side-margin); /* 设置外边距 */
-    margin-top: -34px;  
+    border-top: 2px solid #0000004a; /* 设置直线的颜色和粗细 */
+    margin: 20px var(--side-margin); /* 设置上下外边距 */
+    margin-top: -1%;  
 }
 
 
 
+.h1 {
+    font-size: 50px;
+    text-align: left;
+    margin-left: var(--side-margin);
+    margin-right: var(--side-margin);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 
 .container {
     width: calc(100% - (2 * var(--side-margin))); /* 减去左右边距的总和 */
